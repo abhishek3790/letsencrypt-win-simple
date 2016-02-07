@@ -27,6 +27,14 @@ namespace LetsEncrypt.ACME.Simple
         [Option(Default = "%SystemDrive%\\inetpub\\wwwroot", HelpText = "A web root for the manual host name for authentication.")]
         public string WebRoot { get; set; }
 
+        [Option(HelpText = "Path for Centralized Certificate Store (This enables Centralized SSL). Ex. \\\\storage\\central_ssl\\")]
+        public string CentralSSLStore { get; set; }
+
+        [Option(HelpText = "Hide sites that have existing HTTPS bindings")]
+        public bool HideHTTPS { get; set; }
+
+        [Option(HelpText = "Certificates per site instead of per host")]
+        public bool SAN { get; set; }
 
         // can't easily make this a command line option since it would have to be saved
         //[Option(Default = 60f, HelpText = "Renewal period in days. Can be set to negative to test.")]
